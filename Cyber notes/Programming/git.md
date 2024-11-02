@@ -4,6 +4,8 @@
 
 **`git checkout -b <new-branch>`**: create new branch and switch to it
 
+`git remote add origin <url of the github origin>`: adds origin to push to
+
 **`git add .`**: select all changes to be saved
 
 (`git add *`: select all changes in current working directory (not subdirectories and dotfiles))
