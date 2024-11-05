@@ -98,15 +98,21 @@ Right click on the Connections icon (top right corner) > Edit connections… > W
 Make sure SSH is installed
 
 Enable and start
+
 `sudo systemctl start ssh`
+
 `sudo systemctl enable ssh`
+
 `sudo systemctl status ssh`
-
+ 
 Allow ssh through the firewall
-`sudo ufw allow ssh`
-`sudo ufw reload`
-`sudo ufw status`
 
+`sudo ufw allow ssh`
+
+`sudo ufw reload
+`
+`sudo ufw status`
+ 
 **On client**
 
 `ssh [user]@[ip of the ssh server]`
