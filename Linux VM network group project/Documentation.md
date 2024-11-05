@@ -8,8 +8,8 @@ ___
 - [Setting up the VMs](#setting-up-the-vms)
 - [Server configuration](#server-configuration)
 	- [DHCP](#dhcp)
-	- [DNS]()
-	- [Web server](#dns)
+	- [DNS](#dns----resolves-our-webpage-forwards-for-external-resources)
+	- [Web server](#web-server)
 - [Client configuration](#client-configuration)
 ___
 ## Setting up the VMs
