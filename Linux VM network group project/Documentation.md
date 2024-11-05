@@ -27,10 +27,11 @@ VirtualBox Manager > New > ISO Image: ubuntu-24.04.1-live-server-amd64; Type: Li
 [How to Network Two Virtual Machines With VirtualBox](https://www.makeuseof.com/how-network-two-virtual-machines-with-virtualbox/)
 
 1. VirtualBox Manager > Tools > Network > NAT Networks > Create a NAT network with DHCP activated
-**![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfWSO1LGth3zFoBk4i8aJtPa6LwYW1RjWyu7710NeNkSNT5uP2sW0dvm2kKyR4uXNkv5Vqs8NeG2IS36DH8f4ZE520YvalHbn41nsL66u4B11wkQ_VVV4vpVfVL2EZ1sYqavX7CnZIjKqO98eQhEHpMb3dD?key=PV6ni2H3hUc-OvwgPjFkQ3mK)**
+![](./Assets/nat%20network%20tools.png)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfWSO1LGth3zFoBk4i8aJtPa6LwYW1RjWyu7710NeNkSNT5uP2sW0dvm2kKyR4uXNkv5Vqs8NeG2IS36DH8f4ZE520YvalHbn41nsL66u4B11wkQ_VVV4vpVfVL2EZ1sYqavX7CnZIjKqO98eQhEHpMb3dD?key=PV6ni2H3hUc-OvwgPjFkQ3mK)
   
-2. On each VM, Settings > Network > Attached to: NAT Network; Name: [name of the NAT network you just created]
-**![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXceDAzbti459SpQc6lI3cXE_FZiNhfeNUdKfCUpvqaccw0OpdSOchFI-6XYCGg4JGhEDz7GLNljzOCqTP-s3Nyyo0cRZs8PvtpSWwAf3OnJ1EfAYCx68R46q8mg-ZXdyijSpVhyz8oXmvxJD-6VkVSFEA?key=PV6ni2H3hUc-OvwgPjFkQ3mK)
+3. On each VM, Settings > Network > Attached to: NAT Network; Name: [name of the NAT network you just created]
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXceDAzbti459SpQc6lI3cXE_FZiNhfeNUdKfCUpvqaccw0OpdSOchFI-6XYCGg4JGhEDz7GLNljzOCqTP-s3Nyyo0cRZs8PvtpSWwAf3OnJ1EfAYCx68R46q8mg-ZXdyijSpVhyz8oXmvxJD-6VkVSFEA?key=PV6ni2H3hUc-OvwgPjFkQ3mK)
 ___
 ## Server configuration
 
