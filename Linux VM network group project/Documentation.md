@@ -6,7 +6,7 @@
 ___
 **Table of contents**
 - [Setting up the VMs](./Documentation.md#setting-up-the-vms)
-- [[#Server configuration]]
+- [Server configuration](#server-configuration)
 	- [[#DHCP]]
 	- [DNS]([[#DNS -- resolves our webpage, forwards for external resources]])
 	- [[#Web server]]
