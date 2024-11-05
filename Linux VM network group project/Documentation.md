@@ -22,9 +22,7 @@ Download the file at the above link, extract all, in the extracted file double c
 
 VirtualBox Manager > New > ISO Image: ubuntu-24.04.1-live-server-amd64; Type: Linux
 
-### Putting both VMs on the same network:
-
-[How to Network Two Virtual Machines With VirtualBox](https://www.makeuseof.com/how-network-two-virtual-machines-with-virtualbox/)
+### Putting both VMs on the same network
 
 1. VirtualBox Manager > Tools > Network > NAT Networks > Create a NAT network with DHCP activated
 ![](./Assets/nat%20network%20tools.png)
