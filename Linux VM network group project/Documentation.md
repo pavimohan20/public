@@ -136,4 +136,5 @@ ___
 - [How to change DNS Server on Kali Linux | Troubleshoot DNS on Kali](https://youtu.be/Ya0AZDPgvNk)
 - [Linux DNS Server Configuration for Beginners](https://youtu.be/I8lawEbZKxA)
 - [Linux DNS Server - YouTube](https://www.youtube.com/playlist?list=PL291a0KYQZSK6E_1j9xkkieCOi_867pyc)
-- 
+- [How to add a new user on a Linux server (with SSH access)](https://youtu.be/86EYEuJWfeE)
+- [How to enable SSH on Linux Ubuntu](https://youtu.be/Wlmne44M6fQ)
