@@ -5,12 +5,12 @@
 *As part of a 7-month training program at BeCode, we undertook a group project to create a network composed of two virtual machines (VMs): a Kali Linux client with LibreOffice, Gimp and Mullvad browser installed and a Linux server providing DHCP, DNS, web server, and SSH connection services.*
 ___
 **Table of contents**
-- [Setting up the VMs](./Documentation.md#setting-up-the-vms)
+- [Setting up the VMs](#setting-up-the-vms)
 - [Server configuration](#server-configuration)
-	- [[#DHCP]]
-	- [DNS]([[#DNS -- resolves our webpage, forwards for external resources]])
-	- [[#Web server]]
-- [[#Client configuration]]
+	- [DHCP](#dhcp)
+	- [DNS]()
+	- [Web server](#dns)
+- [Client configuration](#client-configuration)
 ___
 ## Setting up the VMs
 
