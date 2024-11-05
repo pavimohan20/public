@@ -18,7 +18,7 @@ ___
 
 Download the file at the above link, extract all, in the extracted file double click “kali-linux-2024.3-virtualbox-amd64” (the one with a blue cube, Type “VirtualBox Machine Definition”). VirtualBox will automatically execute the file and start a Kali Linux VM
 
-**Server**: **[Get Ubuntu Server | Download](https://ubuntu.com/download/server)**
+**Server**: [Get Ubuntu Server | Download](https://ubuntu.com/download/server)
 
 VirtualBox Manager > New > ISO Image: ubuntu-24.04.1-live-server-amd64; Type: Linux
 
