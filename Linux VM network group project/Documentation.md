@@ -88,8 +88,7 @@ Active section should indicate “active (running)” and Status section: “run
 **On the client**
 
 Right click on the Connections icon (top right corner) > Edit connections… > Wired connection 1 > IPv4 Settings > Additional DNS servers: 10.0.2.15 (the default IP that is automatically assigned to a VM, you can check the IP of the server with `ifconfig` on the CLI of the server)
-
-  
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdf7SqP2xGDF2Yi-xowwDLaM0f091vKWNs1YJDfvxpoK8yLIpMmCB9LSfs72Re-dOzmBuBCK59BBr9lXuNDI0zMlu5TCy1xAVoXmffQNZxNH3PPWduiznBb7NC9M7o0caJmSeqKIUmL_tHEPZ2I79nsNe2o?key=PV6ni2H3hUc-OvwgPjFkQ3mK)
 
 ### Web server
 
