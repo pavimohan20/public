@@ -93,12 +93,12 @@ Right click on the Connections icon (top right corner) > Edit connections… > W
 
 ### Backups (cron)
 
-**Define Backup Requirements:**
+#### Define Backup Requirements:
 
 **Services to Back Up:** We focused on backing up the configuration files for the DHCP and DNS services, with plans to add Nginx later.
 **Backup Destination:** We decided to use a dedicated backup directory, /mnt/backup, for storing backup files.
 
-**Setup the Backup Directory:**
+#### Setup the Backup Directory:
 
 **Mounting the Backup Partition:**
 You mounted a partition (like /dev/sda2) to /mnt/backup to ensure that there was enough space and separation for backup files.
@@ -135,7 +135,7 @@ fi
 ```
 
 
-**Create the backup of configuration files**
+#### Create the backup of configuration files
 
 Update the paths below based on your actual configuration files
 `tar -czvf "$BACKUP_FILE" /etc/dhcp/dhcpd.conf /etc/bind/named.conf`
