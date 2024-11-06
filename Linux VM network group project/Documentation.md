@@ -37,7 +37,80 @@ ___
 
 ### DHCP
 
+Update the package: 
 
+`sudo apt update`
+
+Installation:
+
+`sudo apt install isc-dhcp-server`
+
+Check the status:
+
+`sudo systemctl status isc-dhcp-server`
+
+Check the interface:
+
+`ip a`
+
+`enp0s3`: This is the interface name.
+
+`inet 10.0.2.15/24`: This shows the assigned IP address (in this case, 10.0.2.15).
+
+
+Config dhcp:
+
+`sudo nano /etc/dhcp/dhcpd.conf`
+
+Edit in the config file:
+
+```
+subnet 10.0.2.0 netmask 255.255.255.0 {
+
+ range 10.0.2.10 10.0.2.100; # Range of IPs for DHCP option routers 10.0.2.1; # Default gateway option domain-name-servers 10.0.2.1, 8.8.8.8; # DNS servers for the subnet option domain-name "example.local"; # Local domain 
+
+}
+```
+
+save the configuration by ctrl+o, ctrl+x to exit 
+
+Test the configuration:
+
+`sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf`
+
+Restart : (this command should not give any error, it means your config is right)
+
+`sudo systemctl restart isc-dhcp-server`
+
+If you encounter any error message: use the below command to troubleshoot
+
+`sudo journalctl -xe`
+
+Kali-Linux(ping your gateway IP)
+
+┌──(kali㉿kali)-[~]
+
+└─$ `ip route`
+
+`default via 10.0.2.2 dev eth0 `
+
+`default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100 `
+
+`10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 metric 100 `
+
+Explanation:
+
+default via 10.0.2.2 dev eth0:
+
+- This line indicates that the default gateway for your system is 10.0.2.2, and it is accessible through the eth0 network interface. This means that if your system needs to send packets to a destination that is not on the local network, it will route those packets through this gateway.
+
+default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100:
+
+- This is similar to the first line, but it specifies that this route was obtained via DHCP. The src 10.0.2.15 indicates that your machine's IP address on the eth0 interface is 10.0.2.15. The metric 100 is a value that the routing protocol uses to determine the preference of routes; lower values are preferred over higher ones.
+
+10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 metric 100:
+
+- This line indicates that there is a direct route to the 10.0.2.0/24 subnet (which includes all addresses from 10.0.2.0 to 10.0.2.255) via the eth0 interface. The proto kernel indicates that this route was added by the kernel when the interface was configured. The scope link means that this route is only valid for local traffic on that link.
 ### DNS -- resolves our webpage, forwards for external resources
 
 **On the server**
