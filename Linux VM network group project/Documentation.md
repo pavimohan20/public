@@ -91,6 +91,90 @@ Right click on the Connections icon (top right corner) > Edit connections… > W
 
 ### Web server
 
+1. Update packages:
+
+`sudo apt update`
+
+2. Install nginx:
+
+`sudo apt install nginx -y`
+
+3. Make sure nginx starts and that it will start working when you turn the server on:
+
+`sudo systemctl start nginx`
+
+`sudo systemctl enable nginx`
+
+4. Go to the directory to start making your page:
+
+`cd /etc/nginx/sites-available/`
+
+5. Create your web page config file in this directory and start writing in it:
+
+`sudo nano /etc/nginx/sites-available/my_website`
+
+6. Write the config lines for the page in the nano:
+
+```
+server {
+    listen 80;
+    server_name your_domain_or_IP;
+    root /var/www/my_website;
+    index index.html index.htm;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+7. Create a directory for you webpage:
+
+`sudo mkdir -p /var/www/my_website`
+
+8. Give yourself the permissions to modify it and have access to it:
+
+`sudo chown -R $USER:$USER /var/www/my_website`
+
+`sudo chmod -R 755 /var/www/my_website`
+
+9. Check in /var/www/my_website if the file index.html exists and if it doesn’t, create it:
+
+`cd /var/www/my_website`
+
+`ls`
+
+`touch index.html`
+
+10. Modify the index.html file with your html file:
+
+`nano index.html`
+
+`<html><body><h1>Hello World!</h1></body></html>`
+
+11. Create a symbolic link to enable the new webpage:
+
+`sudo ln -s /etc/nginx/sites-available/my_website /etc/nginx/sites-enabled/`
+
+12. Check the nginx configuration:
+
+`sudo ln -s /etc/nginx/sites-available/my_website /etc/nginx/sites-enabled/`
+
+13. Restart nginx for it to work:
+
+`sudo systemctl reload nginx`
+
+14. To connect to the webpage:
+	a. connect with you machine to the server with ssh
+
+`ssh username@server_ip_adress`
+
+	b. open your web navigator and type the ip address of your server as the url
+
+15. If it is still not working:
+	1. delete the default file in /var/www/
+	2. delete the default file in /etc/nginx/sites-enabled/
+	3. restart nginx
+
 ### Backups (cron)
 
 #### Define Backup Requirements:
