@@ -11,6 +11,7 @@ ___
 	- [DNS](#dns----resolves-our-webpage-forwards-for-external-resources)
 	- [Web server](#web-server)
 	- [Backups](#backups-cron)
+	- [SSH](#ssh-connection)
 - [Client configuration](#client-configuration)
 ___
 ## Setting up the VMs
