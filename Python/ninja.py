@@ -5,6 +5,9 @@ import sys
 import time
 import inspect
 
+# To download it on anoter machine:
+# curl -o ninja.py https://raw.githubusercontent.com/Trogloduck/public/main/Python/ninja.py
+
 # Function to get the current script file name
 def get_script_file():
     try:
