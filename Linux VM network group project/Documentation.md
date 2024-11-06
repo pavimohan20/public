@@ -10,7 +10,7 @@ ___
 	- [DHCP](#dhcp)
 	- [DNS](#dns----resolves-our-webpage-forwards-for-external-resources)
 	- [Web server](#web-server)
-	- [Backups](#backup-(cron))
+	- [Backups](#backup-cron)
 - [Client configuration](#client-configuration)
 ___
 ## Setting up the VMs
