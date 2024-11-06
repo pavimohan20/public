@@ -10,6 +10,7 @@ ___
 	- [DHCP](#dhcp)
 	- [DNS](#dns----resolves-our-webpage-forwards-for-external-resources)
 	- [Web server](#web-server)
+	- [Backups](#backup-(cron))
 - [Client configuration](#client-configuration)
 ___
 ## Setting up the VMs
@@ -92,60 +93,87 @@ Right click on the Connections icon (top right corner) > Edit connections… > W
 
 ### Backups (cron)
 
-Define Backup Requirements:
+**Define Backup Requirements:**
 
 **Services to Back Up:** We focused on backing up the configuration files for the DHCP and DNS services, with plans to add Nginx later.
-Backup Destination: We decided to use a dedicated backup directory, /mnt/backup, for storing backup files.
-Setup the Backup Directory:
+**Backup Destination:** We decided to use a dedicated backup directory, /mnt/backup, for storing backup files.
+
+**Setup the Backup Directory:**
 
 **Mounting the Backup Partition:**
 You mounted a partition (like /dev/sda2) to /mnt/backup to ensure that there was enough space and separation for backup files.
+
 You used the command:
-sudo mount /dev/sda2 /mnt/backup
+
+`sudo mount /dev/sda2 /mnt/backup`
+
 **Create the Backup Script:**
 
 Script Creation: We created a backup script named backup_config.sh in your home directory using nano.
 
-nano ~/backup_config.sh
-#!/bin/bash
+`nano ~/backup_config.sh`
 
-# Backup destination directory
-BACKUP_DIR="/mnt/backup"
+`#!/bin/bash`
 
-# Create a timestamp for the backup file name
-TIMESTAMP=$(date +"%Y%m%d%H%M")
-BACKUP_FILE="$BACKUP_DIR/config_backup_$TIMESTAMP.tar.gz"
+Backup destination directory
 
-# Ensure the backup directory exists
+`BACKUP_DIR="/mnt/backup"`
+
+Create a timestamp for the backup file name
+
+`TIMESTAMP=$(date +"%Y%m%d%H%M")`
+
+`BACKUP_FILE="$BACKUP_DIR/config_backup_$TIMESTAMP.tar.gz"`
+
+**Ensure the backup directory exists**
+
+```
 if [ ! -d "$BACKUP_DIR" ]; then
     echo "Backup directory $BACKUP_DIR does not exist. Please mount the partition."
     exit 1
 fi
+```
 
-# Create the backup of configuration files
-# Update the paths below based on your actual configuration files
-tar -czvf "$BACKUP_FILE" /etc/dhcp/dhcpd.conf /etc/bind/named.conf
 
-# Check if the backup was successful
+**Create the backup of configuration files**
+
+Update the paths below based on your actual configuration files
+`tar -czvf "$BACKUP_FILE" /etc/dhcp/dhcpd.conf /etc/bind/named.conf`
+
+Check if the backup was successful
+```
 if [ $? -eq 0 ]; then
     echo "Backup completed successfully: $BACKUP_FILE"
 else
     echo "Backup failed!"
     exit 1
 fi
+```
 
-save and exit
+Save and exit
+
 **Run the backup Script:**
-sudo ~/backup_config.sh
+
+`sudo ~/backup_config.sh`
+
 **Verify the Backup**
-ls -l /mnt/backup
+
+`ls -l /mnt/backup`
+
 **CRON:**
+
 Cron is a time-based job scheduler in Unix-like operating systems, including Linux. It allows you to run scripts or commands automatically at specified intervals (e.g., hourly, daily, weekly). Using cron, you can schedule your backup script to run automatically without needing to manually execute it each time.
-crontab -e
+
+`crontab -e`
+
 **Run the backup every Sunday at 2:00 AM, you would add the following line:**
-0 2 * * 0 /bin/bash /home/pavithra/backup_config.sh
+
+`0 2 * * 0 /bin/bash /home/pavithra/backup_config.sh`
+
 **Run the crontab**
-crontab -l
+
+`crontab -l`
+
 By setting up a cron job, your backup script will run automatically at the specified time, ensuring that you have regular backups of your configuration files without manual intervention. 
 ### SSH connection
 **On server**
