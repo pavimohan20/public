@@ -26,9 +26,11 @@ VirtualBox Manager > New > ISO Image: ubuntu-24.04.1-live-server-amd64; Type: Li
 ### Putting both VMs on the same network
 
 1. VirtualBox Manager > Tools > Network > NAT Networks > Create a NAT network with DHCP activated
+
 ![](./Assets/nat%20network%20tools.png)
   
 3. On each VM, Settings > Network > Attached to: NAT Network; Name: [name of the NAT network you just created]
+
 ![](./Assets/nat%20network%20hosts.png)
 ___
 ## Server configuration
@@ -87,6 +89,7 @@ Active section should indicate “active (running)” and Status section: “run
 **On the client**
 
 Right click on the Connections icon (top right corner) > Edit connections… > Wired connection 1 > IPv4 Settings > Additional DNS servers: 10.0.2.15 (the default IP that is automatically assigned to a VM, you can check the IP of the server with `ifconfig` on the CLI of the server)
+
 ![](./Assets/client%20dns.png)
 
 ### Web server
