@@ -29,7 +29,7 @@ VirtualBox Manager > New > ISO Image: ubuntu-24.04.1-live-server-amd64; Type: Li
 Before getting in the server or the vm, on VirtualBox, we have to change some network parameters:
  - for the server, put the first adapter in internal network mode and the second adapter on NAT
  - for the VM, put the first adapter in internal network
- - make sure that both interanl network are on the same network name (e.g: "intnet")
+ - make sure that both internal network settings are on the same network name (e.g: "intnet")
 
 ___
 ## Server configuration
