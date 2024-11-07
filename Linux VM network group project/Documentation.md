@@ -38,6 +38,13 @@ ___
 
 ### DHCP
 
+Before getting in the server or the vm, on VirtualBox, we have to change some network parameters:
+ - for the server, put the first adapter in internal network mode and the second adapter on NAT
+ - for the VM, put the first adapter in internal network
+ - make sure that both interanl network are on the same network name (e.g: "intnet")
+
+Now we can get into the server.
+
 Update the package: 
 
 `sudo apt update`
@@ -54,10 +61,9 @@ Check the interface:
 
 `ip a`
 
-`enp0s3`: This is the interface name.
+`enp0s3`: This is the interface name for the internal network.
 
-`inet 10.0.2.15/24`: This shows the assigned IP address (in this case, 10.0.2.15).
-
+`enp0s8`: This is the interface name for the NAT network
 
 Config dhcp:
 
@@ -75,6 +81,34 @@ subnet 10.0.2.0 netmask 255.255.255.0 {
 
 save the configuration by ctrl+o, ctrl+x to exit 
 
+Now we have to make sure the dhcp listens to the right port:
+
+`sudo nano /etc/default/isc-dhcp-server`
+
+Change INTERFACESv4 to enp0s3 (the internal network):
+
+`INTERFACESv4="enp0s3"`
+
+We need to force the "router" IP on the enp0s3 port and make sure that the NAT gets an automatic IP from the VirtualBox DHCP:
+
+`sudo nano /etc/netplan/50-cloud-init.yaml`
+
+```
+network:
+	ethernets:
+		enp0s3:
+			dhcp4: no
+			addresses:
+			 - 10.0.2.1/24
+		enp0s8:
+			dhcp4: yes
+	version: 2
+```
+
+Apply the changes:
+
+`sudo apply netplan`
+
 Test the configuration:
 
 `sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf`
@@ -83,9 +117,17 @@ Restart : (this command should not give any error, it means your config is right
 
 `sudo systemctl restart isc-dhcp-server`
 
+Don't hesitate to use the `ip addr` command to check if the IP's are right
+
 If you encounter any error message: use the below command to troubleshoot
 
 `sudo journalctl -xe`
+
+You can now launch your Kali-Linux machine and start the terminal. If you type `ip addr`, you should see that you don't have any IP yet. That is because we have to do a request to the dhcp server to get one.
+
+`sudo dhclient`
+
+You should now have a working IP in the range of the dhcp
 
 Kali-Linux(ping your gateway IP)
 
