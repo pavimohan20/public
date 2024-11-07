@@ -193,9 +193,7 @@ Active section should indicate “active (running)” and Status section: “run
 
 **On the client**
 
-Right click on the Connections icon (top right corner) > Edit connections… > Wired connection 1 > IPv4 Settings > Additional DNS servers: 10.0.2.15 (the default IP that is automatically assigned to a VM, you can check the IP of the server with `ifconfig` on the CLI of the server)
-
-![](./Assets/client%20dns.png)
+Using the command `sudo dhclient` to request an IP address from the DHCP server will also inform the client which DNS server to use (in this case, ours).
 ___
 ### Web server
 
