@@ -8,7 +8,7 @@ ___
 - [Setting up the VMs](#setting-up-the-vms)
 - [Server configuration](#server-configuration)
 	- [DHCP](#dhcp)
-	- [DNS](#dns----resolves-our-webpage-forwards-for-external-resources)
+	- [DNS](#dns)
 	- [Web server](#web-server)
 	- [Backups](#backups-cron)
 	- [SSH](#ssh-connection)
@@ -145,7 +145,7 @@ default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100:
 10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 metric 100:
 
 - This line indicates that there is a direct route to the 10.0.2.0/24 subnet (which includes all addresses from 10.0.2.0 to 10.0.2.255) via the eth0 interface. The proto kernel indicates that this route was added by the kernel when the interface was configured. The scope link means that this route is only valid for local traffic on that link.
-### DNS -- resolves our webpage, forwards for external resources
+### DNS
 
 **On the server**
 
