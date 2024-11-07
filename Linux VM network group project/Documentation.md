@@ -26,24 +26,15 @@ VirtualBox Manager > New > ISO Image: ubuntu-24.04.1-live-server-amd64; Type: Li
 
 ### Putting both VMs on the same network
 
-1. VirtualBox Manager > Tools > Network > NAT Networks > Create a NAT network with DHCP activated
-
-![](./Assets/nat%20network%20tools.png)
-  
-3. On each VM, Settings > Network > Attached to: NAT Network; Name: [name of the NAT network you just created]
-
-![](./Assets/nat%20network%20hosts.png)
-___
-## Server configuration
-
-### DHCP
-
 Before getting in the server or the vm, on VirtualBox, we have to change some network parameters:
  - for the server, put the first adapter in internal network mode and the second adapter on NAT
  - for the VM, put the first adapter in internal network
  - make sure that both interanl network are on the same network name (e.g: "intnet")
 
-Now we can get into the server.
+___
+## Server configuration
+
+### DHCP
 
 Update the package: 
 
