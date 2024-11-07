@@ -59,7 +59,7 @@ The goal was to set up a Linux server and workstation for a local library with l
    - Demonstrate how the backup system is configured and how to recover configurations.
 4. **Navigating the Web Server's Local Page:**
    - Show the local webpage hosted by the Nginx server.
-
+___
 ### DHCP
 
 Update the package: 
