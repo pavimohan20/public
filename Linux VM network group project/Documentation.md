@@ -13,7 +13,6 @@ The goal was to set up a Linux server and workstation for a local library with l
 ### Server Setup
 - **Ubuntu Server:** A non-GUI (Graphical User Interface) environment, typically used for backend services like DHCP, DNS, SSH, and web servers.
 - **Kali Linux Workstation:** A client with a GUI, ideal for installing and running applications that require a graphical interface for productivity and browsing.
-- 
 
 ### Components of the Server Setup:
 - **DHCP Server (isc-dhcp-server):** Automatically assigns IP addresses to clients.
