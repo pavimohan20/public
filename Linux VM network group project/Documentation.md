@@ -3,6 +3,18 @@
 *Henri Hubert, Pavithra Mohan, Tom Macdonald*
 
 *As part of a 7-month training program at BeCode, we undertook a group project to create a network composed of two virtual machines (VMs): a Kali Linux client with LibreOffice, Gimp and Mullvad browser installed and a Linux server providing DHCP, DNS, web server, and SSH connection services.*
+___
+Table of contents
+- [Introduction](#1-introduction)
+- [Project Infrastructure](#2-project-infrastructure)
+- [Key Functionalities](#3-key-functionalities)
+- [Project Demonstration](#4-project-demonstration)
+- [DHCP](#dhcp)
+- [DNS](#dns)
+- [Web server](#web-server)
+- [Backups](#backups-cron)
+- [SSH](#ssh)
+___
 
 ## 1. Introduction
 ### Project Overview
