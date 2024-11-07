@@ -394,8 +394,45 @@ Allow ssh through the firewall
 
 `ssh [user]@[ip of the ssh server]`
 
+## Get internet on the client via the server
 
+#### In the server
 
+Enable IP forwarding in the server so the server will be able to send packet from the NAT to the internal network:
+
+`sudo nano /etc/sysctl.conf`
+
+`net.ipv4.ip_forward=1` (you just have to uncomment this line)
+
+Save and apply the changes: 
+
+`sudo sysctl -p`
+
+Now, we need to add some elements to the iptable:
+
+`sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE`
+
+This will add to the NAT table a line saying that it can communicate through the enp0s3 interface since it is the interface connected to the internet.
+
+Add those lines of command to the start-up config:
+
+`sudo apt-get install iptables-persistent`
+
+Normally, it should ask you if you want to save the config once you installed it but if it doesn't, run this command line:
+
+`sudo iptables-save | sudo tee /etc/iptables/rules.v4`
+
+#### In the Kali VM
+
+Check the route:
+
+`ip route`
+
+If the default route isn't your server, you should add it: 
+
+`sudo ip route add default via 10.0.2.1`
+
+Know you should be able to ping whatever you want and have access to internet!
 
 ___
 ## Client configuration
