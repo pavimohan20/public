@@ -6,13 +6,11 @@
 ___
 **Table of contents**
 - [Setting up the VMs](#setting-up-the-vms)
-- [Server configuration](#server-configuration)
-	- [DHCP](#dhcp)
-	- [DNS](#dns)
-	- [Web server](#web-server)
-	- [Backups](#backups-cron)
-	- [SSH](#ssh-connection)
-- [Client configuration](#client-configuration)
+- [DHCP](#dhcp)
+- [DNS](#dns)
+- [Web server](#web-server)
+- [Backups](#backups-cron)
+- [SSH](#ssh-connection)
 ___
 ## Setting up the VMs
 
@@ -32,7 +30,6 @@ Before getting in the server or the vm, on VirtualBox, we have to change some ne
  - make sure that both internal network settings are on the same network name (e.g: "intnet")
 
 ___
-## Server configuration
 
 ### DHCP
 
@@ -145,6 +142,7 @@ default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100:
 10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 metric 100:
 
 - This line indicates that there is a direct route to the 10.0.2.0/24 subnet (which includes all addresses from 10.0.2.0 to 10.0.2.255) via the eth0 interface. The proto kernel indicates that this route was added by the kernel when the interface was configured. The scope link means that this route is only valid for local traffic on that link.
+___
 ### DNS
 
 **On the server**
@@ -198,7 +196,7 @@ Active section should indicate “active (running)” and Status section: “run
 Right click on the Connections icon (top right corner) > Edit connections… > Wired connection 1 > IPv4 Settings > Additional DNS servers: 10.0.2.15 (the default IP that is automatically assigned to a VM, you can check the IP of the server with `ifconfig` on the CLI of the server)
 
 ![](./Assets/client%20dns.png)
-
+___
 ### Web server
 
 1. Update packages:
@@ -284,7 +282,7 @@ server {
 	1. delete the default file in /var/www/
 	2. delete the default file in /etc/nginx/sites-enabled/
 	3. restart nginx
-
+___
 ### Backups (cron)
 
 #### Define Backup Requirements:
@@ -369,6 +367,7 @@ Cron is a time-based job scheduler in Unix-like operating systems, including Lin
 `crontab -l`
 
 By setting up a cron job, your backup script will run automatically at the specified time, ensuring that you have regular backups of your configuration files without manual intervention. 
+___
 ### SSH connection
 **On server**
 
@@ -393,7 +392,7 @@ Allow ssh through the firewall
 **On client**
 
 `ssh [user]@[ip of the ssh server]`
-
+___
 ## Get internet on the client via the server
 
 #### In the server
@@ -434,14 +433,7 @@ If the default route isn't your server, you should add it:
 
 Know you should be able to ping whatever you want and have access to internet!
 
-___
-## Client configuration
-  
-  
-  
-  
-  
-  
+
 ___
 ## Online resources:
 
